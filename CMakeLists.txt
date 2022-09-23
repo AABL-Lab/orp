@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(orp)
 
-# Use C++11
-add_compile_options(-std=c++11)
-
 find_package(catkin REQUIRED COMPONENTS
     cv_bridge
     eigen_conversions
@@ -91,6 +88,7 @@ add_library(orp
 add_dependencies(orp ${orp_EXPORTED_TARGETS} ${PROJECT_NAME}_generate_messages_cpp)
 
 target_link_libraries(orp ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+set_property(TARGET orp PROPERTY CXX_STANDARD 14)
 
 ####################################################################################################
 
